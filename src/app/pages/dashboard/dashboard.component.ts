@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   public chartColor;
   public chartEmail;
   public chartHours;
-  private proprties: any;
+  public proprties: any;
   private data: any;
 
   public constructor(private http: HttpClient, private util: UtilService) {

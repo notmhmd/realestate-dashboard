@@ -60,6 +60,10 @@ export class AddPropertyComponent implements OnInit {
     this.wasFormChanged = true;
   }
 
+  openDialog() {
+    this.dialog.closeAll();
+  }
+
   loadOwners() {
     this.util.getRequest("customers").subscribe((customers) => {
       this.owners = customers;
