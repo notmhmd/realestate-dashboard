@@ -1,0 +1,159 @@
+<div>
+  <div class="add-title">
+    <h2 class="primary">Add Property</h2>
+  </div>
+
+  <div class="loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+  <div>
+    <form [formGroup]="addPropForm" (change)="formChanged()">
+      <mat-grid-list
+        cols="2"
+        [cols]="breakpoint"
+        rowHeight="85px"
+        (window:resize)="onResize($event)"
+      >
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input
+                type="number"
+                matInput
+                placeholder="Price"
+                value="{{ price }}"
+                formControlName="price"
+                required
+              />
+              <mat-error
+                *ngIf="addPropForm.controls.price.hasError('required')"
+              >
+                Please enter Property Price
+              </mat-error>
+              <mat-error *ngIf="addPropForm.controls.price.hasError('pattern')">
+                Please enter valid Price
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input
+                type="number"
+                matInput
+                placeholder="Min Price"
+                value="{{ minPrice }}"
+                formControlName="minPrice"
+              />
+              <mat-error
+                *ngIf="addPropForm.controls.minPrice.hasError('pattern')"
+              >
+                Please enter valid Min Price
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field class="example-full-width">
+              <input
+                type="number"
+                matInput
+                placeholder="Max Price"
+                value="{{ maxPrice }}"
+                formControlName="maxPrice"
+              />
+              <mat-error
+                *ngIf="addPropForm.controls.maxPrice.hasError('pattern')"
+              >
+                Please enter valid Max Price
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <!-- <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                placeholder="Date of birth"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile> -->
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <mat-label>Owner</mat-label>
+              <mat-select formControlName="owner">
+                <mat-option *ngFor="let owner of owners" [value]="owner.id">
+                  {{ owner.username }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Address"
+                formControlName="address1"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="text-inside">
+            <mat-radio-group class="gender" formControlName="type">
+              <div style="color: grey;">Type</div>
+              <mat-radio-button
+                color="primary"
+                style="padding: 4px 4px 0px 0px;"
+                value="1"
+                >Rent</mat-radio-button
+              >
+              <mat-radio-button
+                color="primary"
+                style="padding: 4px 0px 0px 24px;"
+                value="2"
+                >Buy</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="btn-sec">
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          class="Update-btn"
+          (click)="submit()"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          class="Discard-btn"
+          (click)="openDialog()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

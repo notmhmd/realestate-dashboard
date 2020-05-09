@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  background: #ddd;
+  background-color: #23bdf5;
+  background: linear-gradient(
+    to bottom,
+    #34b9f7 0%,
+    #34b9f7 40%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  position: relative;
+  text-align: center;
+  overflow: auto;
+}
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+  right: 50px;
+}
+
+.form-element {
+  height: 35vh;
+  background: white;
+  margin-bottom: 5em;
+}
+
+.page-title {
+  padding-top: 2em;
+  font-size: 4em;
+  text-align: inherit;
+  color: white;
+}
