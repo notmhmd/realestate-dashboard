@@ -41,10 +41,11 @@
     "core-js": "3.6.4",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
-    "express": "4.17.1",
+    "express": "^4.17.1",
     "jquery": "^3.4.1",
     "moment": "2.24.0",
     "ngx-toastr": "10.0.4",
+    "path": "^0.12.7",
     "rxjs": "6.5.4",
     "tslib": "1.11.1",
     "zone.js": "0.9.1"
