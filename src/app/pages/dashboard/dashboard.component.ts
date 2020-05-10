@@ -14,7 +14,9 @@ export class DashboardComponent implements OnInit {
   public chartColor;
   public chartEmail;
   public chartHours;
-  public proprties: any;
+  public proprties: Number;
+  public customers: Number;
+  public contracts: Number;
   private data: any;
 
   public constructor(private http: HttpClient, private util: UtilService) {
@@ -236,11 +238,13 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  async loadStat() {
-    this.util.getRequest("property").subscribe((res) => {
+  loadStat() {
+    return this.util.getRequest("stats").subscribe((res) => {
       console.log(res);
       this.data = res;
-      this.proprties = this.data.length;
+      this.proprties = this.data.properties;
+      this.customers = this.data.customers;
+      this.contracts = this.data.contracts;
     });
   }
 }

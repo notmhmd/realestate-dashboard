@@ -4,6 +4,7 @@ body {
 }
 
 .container {
+  max-width: inherit !important;
   height: 100vh;
   background: #ddd;
   background-color: #23bdf5;
@@ -20,17 +21,17 @@ body {
 }
 
 .center-content {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 25%;
   transform: translateY(-50%);
-  left: 50px;
-  right: 50px;
+  width: 70%;
+  margin: auto;
 }
 
 .form-element {
-  height: 35vh;
+  /* height: 35vh; */
   background: white;
-  margin-bottom: 5em;
+  /* margin-bottom: 5em; */
 }
 
 .page-title {
