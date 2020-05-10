@@ -45,10 +45,10 @@
                 matInput
                 placeholder="Min Price"
                 value="{{ minPrice }}"
-                formControlName="minPrice"
+                formControlName="min_price"
               />
               <mat-error
-                *ngIf="addPropForm.controls.minPrice.hasError('pattern')"
+                *ngIf="addPropForm.controls.min_price.hasError('pattern')"
               >
                 Please enter valid Min Price
               </mat-error>
@@ -63,10 +63,10 @@
                 matInput
                 placeholder="Max Price"
                 value="{{ maxPrice }}"
-                formControlName="maxPrice"
+                formControlName="max_price"
               />
               <mat-error
-                *ngIf="addPropForm.controls.maxPrice.hasError('pattern')"
+                *ngIf="addPropForm.controls.max_price.hasError('pattern')"
               >
                 Please enter valid Max Price
               </mat-error>
@@ -103,13 +103,61 @@
           </div>
         </mat-grid-tile>
 
-        <mat-grid-tile>
+        <mat-grid-tile formGroupName="address1">
           <div class="text-inside">
             <mat-form-field>
               <textarea
                 matInput
-                placeholder="Address"
-                formControlName="address1"
+                placeholder="Area"
+                formControlName="area"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile formGroupName="address1">
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Country"
+                formControlName="country"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile formGroupName="address1">
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Street"
+                formControlName="street"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile formGroupName="address1">
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Landmarks"
+                formControlName="landmark"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile formGroupName="address1">
+          <div class="text-inside">
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Raw Address"
+                formControlName="raw_address"
               ></textarea>
             </mat-form-field>
           </div>

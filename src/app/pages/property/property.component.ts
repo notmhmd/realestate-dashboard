@@ -20,8 +20,8 @@ import { AddPropertyComponent } from "app/modals/add-property/add-property.compo
 @Component({
   selector: "table-cmp",
   moduleId: module.id,
-  templateUrl: "table.component.html",
-  styleUrls: ["table.component.css"],
+  templateUrl: "property.component.html",
+  styleUrls: ["property.component.css"],
   animations: [
     trigger("detailExpand", [
       state("collapsed", style({ height: "0px", minHeight: "0" })),
@@ -33,7 +33,7 @@ import { AddPropertyComponent } from "app/modals/add-property/add-property.compo
     ]),
   ],
 })
-export class TableComponent implements OnInit {
+export class PropertyComponent implements OnInit {
   data: any;
   propyrties: [];
   isLoadingResults = true;
@@ -54,7 +54,10 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getProperty();
+  }
 
+  getProperty() {
     this.loadProperty().then(
       (res) => {
         this.data = res;
@@ -98,6 +101,12 @@ export class TableComponent implements OnInit {
     const dialogRef = this.dialog.open(AddPropertyComponent, {
       width: "640px",
       disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe((reload) => {
+      console.log(reload);
+      if (reload) {
+        this.getProperty();
+      }
     });
   }
 }

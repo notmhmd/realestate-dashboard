@@ -43,9 +43,16 @@ export class AddPropertyComponent implements OnInit {
         0.0,
         [Validators.required, Validators.pattern("[0-9]+([0-9]+)*")],
       ],
-      minPrice: [0, [Validators.pattern("[0-9]+([0-9]+)*")]],
-      maxPrice: [0, [Validators.pattern("[0-9]+([0-9]+)*")]],
-      address1: [null, [Validators.required]],
+      min_price: [0, [Validators.pattern("[0-9]+([0-9]+)*")]],
+      max_price: [0, [Validators.pattern("[0-9]+([0-9]+)*")]],
+      address1: this.fb.group({
+        area: [null, [Validators.required]],
+        country: [null, [Validators.required]],
+        street: [null, [Validators.required]],
+        landmark: [null, [Validators.required]],
+        raw_address: [null, [Validators.required]],
+      }),
+
       owner: [0, [Validators.required]],
       type: [1, [Validators.required]],
     });
@@ -74,11 +81,23 @@ export class AddPropertyComponent implements OnInit {
   submit() {
     this.isLoadingResults = true;
     if (this.addPropForm.valid) {
-      this.util
-        .request("property/", this.addPropForm.value)
-        .subscribe((res) => {
-          console.log(res);
-        });
+      this.util.request("property/", this.addPropForm.value).subscribe(
+        (res) => {
+          this.util.showNotification(
+            "top",
+            "center",
+            2,
+            "Added Succesfully",
+            "Success"
+          );
+          this.isLoadingResults = false;
+          this.dialogRef.close(true);
+        },
+        (error) => {
+          console.log(error);
+          this.isLoadingResults = false;
+        }
+      );
     }
   }
 }
