@@ -4,13 +4,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
-import { UtilService } from "app/services/util.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UtilService, NotifecationType } from "app/services/util.service";
 
 @Component({
   selector: "app-add-property",
@@ -38,7 +33,6 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit(): void {
     this.addPropForm = this.fb.group({
-      IdProof: null,
       price: [
         0.0,
         [Validators.required, Validators.pattern("[0-9]+([0-9]+)*")],
@@ -68,7 +62,7 @@ export class AddPropertyComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.closeAll();
+    this.dialogRef.close();
   }
 
   loadOwners() {
@@ -86,7 +80,7 @@ export class AddPropertyComponent implements OnInit {
           this.util.showNotification(
             "top",
             "center",
-            2,
+            NotifecationType.success,
             "Added Succesfully",
             "Success"
           );

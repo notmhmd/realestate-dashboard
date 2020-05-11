@@ -10,6 +10,8 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+import { MatDialog } from "@angular/material/dialog";
+import { AddServiceComponent } from "app/modals/add-service/add-service.component";
 
 @Component({
   selector: "app-services",
@@ -38,13 +40,16 @@ export class ServicesComponent implements OnInit {
 
   columnsToDisplay = ["name", "price"];
 
-  constructor(private util: UtilService) {}
+  constructor(private util: UtilService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getServices();
+  }
 
-    this.loadProperty().then(
+  getServices() {
+    this.loadServices().then(
       (res) => {
         this.data = res;
         this.services = this.data;
@@ -62,7 +67,7 @@ export class ServicesComponent implements OnInit {
     return name.toUpperCase().replace("_", " ");
   }
 
-  async loadProperty() {
+  async loadServices() {
     let myObj = this;
     return new Promise(function (resolve, reject) {
       myObj.util.getRequest("services").subscribe(
@@ -85,5 +90,18 @@ export class ServicesComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddServiceComponent, {
+      width: "640px",
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe((reload) => {
+      console.log(reload);
+      if (reload) {
+        this.getServices();
+      }
+    });
   }
 }

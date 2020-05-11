@@ -3,6 +3,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { User } from "app/models/user";
 import { ToastrService } from "ngx-toastr";
+export enum NotifecationType {
+  info,
+  error,
+  success,
+  warning,
+  default,
+}
 
 const apiUrl = "https://realestateapp-api.herokuapp.com/api/";
 
@@ -50,55 +57,49 @@ export class UtilService {
   //from : the positon of the notifecation
   //align: aligment of the Notifecation
   //type: type of the massage 1 for info , 2 success and so on ..
-  showNotification(from, align, type, text, title) {
-    switch (type) {
-      case 1:
-        this.toastr.info(text, title, {
-          timeOut: 4000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: "alert alert-info alert-with-icon",
-          positionClass: "toast-" + from + "-" + align,
-        });
-        break;
-      case 2:
-        this.toastr.success(text, title, {
-          timeOut: 4000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: "alert alert-success alert-with-icon",
-          positionClass: "toast-" + from + "-" + align,
-        });
-        break;
-      case 3:
-        this.toastr.warning(text, title, {
-          timeOut: 4000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: "alert alert-warning alert-with-icon",
-          positionClass: "toast-" + from + "-" + align,
-        });
-        break;
-      case 4:
-        this.toastr.error(text, title, {
-          timeOut: 4000,
-          enableHtml: true,
-          closeButton: true,
-          toastClass: "alert alert-danger alert-with-icon",
-          positionClass: "toast-" + from + "-" + align,
-        });
-        break;
-      case 5:
-        this.toastr.show(text, title, {
-          timeOut: 4000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: "alert alert-primary alert-with-icon",
-          positionClass: "toast-" + from + "-" + align,
-        });
-        break;
-      default:
-        break;
+  showNotification(from, align, type: NotifecationType, text, title) {
+    console.log(type, "Not Type");
+
+    if (NotifecationType.info == type) {
+      this.toastr.info(text, title, {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-" + from + "-" + align,
+      });
+    } else if (NotifecationType.success == type) {
+      this.toastr.success(text, title, {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-success alert-with-icon",
+        positionClass: "toast-" + from + "-" + align,
+      });
+    } else if (NotifecationType.warning == type) {
+      this.toastr.warning(text, title, {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-warning alert-with-icon",
+        positionClass: "toast-" + from + "-" + align,
+      });
+    } else if (NotifecationType.error == type) {
+      this.toastr.error(text, title, {
+        timeOut: 4000,
+        enableHtml: true,
+        closeButton: true,
+        toastClass: "alert alert-danger alert-with-icon",
+        positionClass: "toast-" + from + "-" + align,
+      });
+    } else if (NotifecationType.default == type) {
+      this.toastr.show(text, title, {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: "toast-" + from + "-" + align,
+      });
     }
   }
 }

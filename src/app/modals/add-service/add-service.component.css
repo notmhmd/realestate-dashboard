@@ -1,0 +1,42 @@
+mat-form-field {
+  width: 100%;
+}
+
+.btn-sec {
+  margin-right: 5rem !important;
+  text-align: right;
+  margin-top: 1.5em;
+}
+.Update-btn {
+  margin: 5px;
+}
+.Discard-btn {
+  margin: 5px;
+}
+.text-inside {
+  position: absolute;
+  left: 5px;
+  width: 100%;
+}
+@media (max-width: 800px) {
+  .btn-sec {
+    margin-right: 1rem !important;
+  }
+}
+@media (max-width: 600px) {
+  .btn-sec {
+    margin-right: 1rem !important;
+  }
+}
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

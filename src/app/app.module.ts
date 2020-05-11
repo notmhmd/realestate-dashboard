@@ -19,9 +19,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AddPropertyComponent } from "./modals/add-property/add-property.component";
 
 import { MaterialModule } from "./modules/material.module";
+import { AddServiceComponent } from './modals/add-service/add-service.component';
 
 @NgModule({
-  declarations: [AppComponent, AdminLayoutComponent, AddPropertyComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AddPropertyComponent, AddServiceComponent],
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {
