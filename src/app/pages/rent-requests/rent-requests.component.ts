@@ -100,7 +100,7 @@ export class RentRequestsComponent implements OnInit {
     // load the pending request data from the API
     let myObj = this;
     return new Promise(function (resolve, reject) {
-      myObj.util.getRequest("requests").subscribe(
+      myObj.util.getRequest("property/requests").subscribe(
         (res) => {
           console.log(res);
           resolve(res);
