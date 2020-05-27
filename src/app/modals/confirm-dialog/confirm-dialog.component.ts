@@ -42,7 +42,7 @@ export class ConfirmDialogComponent implements OnInit {
       period: this.payload.period,
     };
     this.util
-      .request(`requests/${this.payload.id}/approve/`, reqData)
+      .request(`property/${this.payload.id}/approve/`, reqData)
       .subscribe((res) => {
         console.log(res);
       });
