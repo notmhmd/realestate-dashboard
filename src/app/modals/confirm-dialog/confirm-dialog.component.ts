@@ -40,6 +40,7 @@ export class ConfirmDialogComponent implements OnInit {
     let reqData = {
       signature: "TEST",
       period: this.payload.period,
+      request_id: this.payload.id,
     };
     this.util
       .request(`property/${this.payload.id}/approve/`, reqData)
