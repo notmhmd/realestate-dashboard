@@ -23,6 +23,7 @@ export const ROUTES: RouteInfo[] = [
   { path: "/services", title: "Services", icon: "nc-shop", class: "" },
   { path: "/contracts", title: "Contracts", icon: "nc-paper", class: "" },
   { path: "/pending", title: "Pending Request", icon: "nc-bank", class: "" },
+  { path: "/reports", title: "Reports", icon: "nc-bank", class: "" },
 ];
 
 @Component({

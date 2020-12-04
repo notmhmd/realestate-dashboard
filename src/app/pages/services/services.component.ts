@@ -30,7 +30,7 @@ import { AddServiceComponent } from "app/modals/add-service/add-service.componen
 })
 export class ServicesComponent implements OnInit {
   data: any;
-  services: [];
+  services: [] = [];
   isLoadingResults = true;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

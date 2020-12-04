@@ -38,6 +38,7 @@ import { MatSelectModule } from "@angular/material/select";
     MatGridListModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatDatepickerModule,
   ],
   providers: [MatDatepickerModule],
 })

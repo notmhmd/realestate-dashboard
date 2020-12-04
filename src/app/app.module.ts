@@ -20,9 +20,10 @@ import { AddPropertyComponent } from "./modals/add-property/add-property.compone
 
 import { MaterialModule } from "./modules/material.module";
 import { AddServiceComponent } from './modals/add-service/add-service.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 
 @NgModule({
-  declarations: [AppComponent, AdminLayoutComponent, AddPropertyComponent, AddServiceComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AddPropertyComponent, AddServiceComponent, ReportsComponent],
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {

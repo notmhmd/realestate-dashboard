@@ -35,7 +35,7 @@ import { AddPropertyComponent } from "app/modals/add-property/add-property.compo
 })
 export class PropertyComponent implements OnInit {
   data: any;
-  propyrties: [];
+  propyrties: [] = [];
   isLoadingResults = true;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

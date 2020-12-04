@@ -28,7 +28,7 @@ import {
 })
 export class RentRequestsComponent implements OnInit {
   data: any;
-  requests: [];
+  requests: [] = [];
   result: string = "";
 
   isLoadingResults = true;

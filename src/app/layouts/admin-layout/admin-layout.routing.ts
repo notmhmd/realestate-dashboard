@@ -6,6 +6,7 @@ import { PropertyComponent } from "../../pages/property/property.component";
 import { MapsComponent } from "../../pages/maps/maps.component";
 import { ServicesComponent } from "../../pages/services/services.component";
 import { RentRequestsComponent } from "app/pages/rent-requests/rent-requests.component";
+import { ReportsComponent } from "app/pages/reports/reports.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "", component: DashboardComponent },
@@ -14,5 +15,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "services", component: ServicesComponent },
   // { path: "contracts", component: TypographyComponent },
   { path: "pending", component: RentRequestsComponent },
-  // { path: 'maps',           component: MapsComponent },
+  { path: "reports", component: ReportsComponent },
 ];
