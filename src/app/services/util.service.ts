@@ -12,7 +12,7 @@ export enum NotifecationType {
   default,
 }
 
-const apiUrl = "http://127.0.0.1:8000/api/";
+const apiUrl = "https://realestateapp-api.herokuapp.com/api/";
 
 @Injectable({
   providedIn: "root",
