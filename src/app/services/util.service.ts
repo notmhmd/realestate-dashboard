@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { User } from "app/models/user";
 import { ToastrService } from "ngx-toastr";
+import { map } from "rxjs/operators";
 export enum NotifecationType {
   info,
   error,
@@ -52,7 +53,17 @@ export class UtilService {
     let options = {
       headers: headers,
     };
-    return this.http.post(apiUrl + uri, data, options);
+    return this.http
+      .post(apiUrl + uri, data, {
+        responseType: "arraybuffer",
+        observe: "response",
+        headers: headers,
+      })
+      .pipe(
+        map((res) => {
+          return res;
+        })
+      );
   }
   //from : the positon of the notifecation
   //align: aligment of the Notifecation

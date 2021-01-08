@@ -19,10 +19,7 @@
           <div class="text-inside">
             <mat-form-field appearance="fill">
               <mat-label>Enter a date range</mat-label>
-              <mat-date-range-input
-                [rangePicker]="picker"
-                formControlName="dateRange"
-              >
+              <mat-date-range-input [rangePicker]="picker">
                 <input
                   matStartDate
                   formControlName="from"
@@ -50,6 +47,7 @@
                 >Rent</mat-radio-button
               >
               <mat-radio-button
+                disabled
                 color="primary"
                 style="padding: 4px 0px 0px 24px"
                 value="2"
