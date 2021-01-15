@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, pipe } from "rxjs";
 import { map } from "rxjs/operators";
 import { User } from "../models/user";
 
-const apiUrl = "https://realestateapp-api.herokuapp.com/";
+const apiUrl = "https://realestateapp-api.herokuapp.com";
 
 @Injectable({
   providedIn: "root",
